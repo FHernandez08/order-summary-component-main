@@ -1,0 +1,198 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+:root {
+    --primary-pale-blue: hsl(225, 100%, 94%);
+    --primary-bright-blue: hsl(245, 75%, 52%);
+
+    --neutral-verypale-blue: hsl(225, 100%, 98%);
+    --neutral-desaturated-blue: hsl(224, 23%, 55%);
+    --neutral-dark-blue: hsl(223, 47%, 23%);
+
+    --fs-main: 16px;
+
+    --ff-main: "Red Hat Display", sans-serif;
+    
+    --fw-medium: 500;
+    --fw-bold: 700;
+    --fw-black: 900;
+}
+
+/* desktop design */
+body {
+  font-family: var(--ff-main);
+  font-size: var(--fs-main);
+  background-image: url(images/pattern-background-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 1440px;
+  background-color: var(--primary-pale-blue);
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: white;
+  width: 450px;
+  height: 650px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
+  gap: 20px;
+}
+
+#main-heading {
+  font-size: 1.75rem;
+  font-weight: var(--fw-black);
+}
+
+#paragraph {
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  color: var(--neutral-desaturated-blue);
+}
+
+.plan-section {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--neutral-verypale-blue);
+
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.left-side {
+  display: flex;
+  gap: 20px;
+}
+
+.flex-column #bolded {
+  font-weight: var(--fw-black);
+}
+
+.flex-column #lower-line {
+  color: var(--neutral-desaturated-blue);
+}
+
+.plan-section #underline {
+  color: var(--primary-bright-blue);
+  font-weight: var(--fw-bold);
+  text-decoration: underline;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--primary-bright-blue);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: var(--fw-black);
+}
+
+#cancel {
+  font-weight: var(--fw-bold);
+  color: var(--neutral-desaturated-blue);
+}
+
+/* active states */
+#underline:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#cancel:hover {
+  cursor: pointer;
+}
+
+#underline:active {
+  text-decoration: none;
+  opacity: 70%;
+}
+
+button:active {
+  opacity: 70%;
+}
+
+#cancel:active {
+  color: var(--neutral-dark-blue);
+}
+
+/* mobile design */
+@media screen and (max-width: 375px) {
+  body {
+    width: 100%;
+    height: auto;
+  }
+
+  .container {
+    width: 350px;
+  }
+
+  .text {
+    gap: 30px;
+  }
+}
+
